@@ -1,25 +1,22 @@
 {
-  "name": "favorite-movie",
+  "name": "movies",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "angular-nx-ddd",
-  "sourceRoot": "apps/favorite-movie/src",
-  "tags": [],
+  "sourceRoot": "apps/movies/src",
+  "tags": ["domain:movies", "type:app"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/favorite-movie",
-        "index": "apps/favorite-movie/src/index.html",
-        "main": "apps/favorite-movie/src/main.ts",
+        "outputPath": "dist/apps/movies",
+        "index": "apps/movies/src/index.html",
+        "main": "apps/movies/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/favorite-movie/tsconfig.app.json",
-        "assets": [
-          "apps/favorite-movie/src/favicon.ico",
-          "apps/favorite-movie/src/assets"
-        ],
-        "styles": ["apps/favorite-movie/src/styles.scss"],
+        "tsConfig": "apps/movies/tsconfig.app.json",
+        "assets": ["apps/movies/src/favicon.ico", "apps/movies/src/assets"],
+        "styles": ["apps/movies/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -53,10 +50,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "favorite-movie:build:production"
+          "browserTarget": "movies:build:production"
         },
         "development": {
-          "browserTarget": "favorite-movie:build:development"
+          "browserTarget": "movies:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,24 +61,21 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "favorite-movie:build"
+        "browserTarget": "movies:build"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/favorite-movie/**/*.ts",
-          "apps/favorite-movie/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/movies/**/*.ts", "apps/movies/**/*.html"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/favorite-movie/jest.config.ts",
+        "jestConfig": "apps/movies/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -94,7 +88,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "favorite-movie:build"
+        "buildTarget": "movies:build"
       }
     }
   }

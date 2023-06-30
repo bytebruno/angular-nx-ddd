@@ -1,22 +1,22 @@
 {
-  "name": "favorite-movie-e2e",
+  "name": "movies-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/favorite-movie-e2e/src",
+  "sourceRoot": "apps/movies-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/favorite-movie-e2e/cypress.config.ts",
-        "devServerTarget": "favorite-movie:serve:development",
+        "cypressConfig": "apps/movies-e2e/cypress.config.ts",
+        "devServerTarget": "movies:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "favorite-movie:serve:production"
+          "devServerTarget": "movies:serve:production"
         },
         "ci": {
-          "devServerTarget": "favorite-movie:serve-static"
+          "devServerTarget": "movies:serve-static"
         }
       }
     },
@@ -24,10 +24,10 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/favorite-movie-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/movies-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["favorite-movie"]
+  "implicitDependencies": ["movies"]
 }
