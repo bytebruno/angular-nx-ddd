@@ -9,7 +9,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "movies",
+            "prefix": "customer",
             "style": "camelCase"
           }
         ],
@@ -17,7 +17,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "movies",
+            "prefix": "customer",
             "style": "kebab-case"
           }
         ]

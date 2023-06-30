@@ -5,10 +5,12 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({

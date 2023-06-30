@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-nx-ddd/movies/domain": ["libs/movies/domain/src/index.ts"]
+      "@angular-nx-ddd/customer/domain": ["libs/customer/domain/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

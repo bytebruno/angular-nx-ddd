@@ -51,8 +51,8 @@
                 "onlyDependOnLibsWithTags": ["domain:shared"]
               },
               {
-                "sourceTag": "domain:movies",
-                "onlyDependOnLibsWithTags": ["domain:movies", "domain:shared"]
+                "sourceTag": "domain:customer",
+                "onlyDependOnLibsWithTags": ["domain:customer", "domain:shared"]
               }
             ]
           }

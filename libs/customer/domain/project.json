@@ -1,16 +1,16 @@
 {
-  "name": "movies-domain",
+  "name": "customer-domain",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/movies/domain/src",
-  "prefix": "movies",
-  "tags": ["domain:movies", "type:domain-logic"],
+  "sourceRoot": "libs/customer/domain/src",
+  "prefix": "customer",
+  "tags": ["domain:customer", "type:domain-logic"],
   "projectType": "library",
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/movies/domain/jest.config.ts",
+        "jestConfig": "libs/customer/domain/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -25,8 +25,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/movies/domain/**/*.ts",
-          "libs/movies/domain/**/*.html"
+          "libs/customer/domain/**/*.ts",
+          "libs/customer/domain/**/*.html"
         ]
       }
     }
