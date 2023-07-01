@@ -1,4 +1,13 @@
-.table td {
-  border: 1px solid;
-  padding: 10px;
+.customer {
+  &-form {
+    max-width: 300px;
+
+    &-margin {
+      margin-bottom: 16px;
+    }
+
+    &-button {
+      width: 100%;
+    }
+  }
 }

@@ -1,0 +1,10 @@
+:host {
+  width: 100%;
+}
+.label-icon {
+  color: rgba(0, 0, 0, 0.85);
+
+  &.error {
+    color: #ff4d4f;
+  }
+}

@@ -1,0 +1,31 @@
+<ng-container [formGroup]="parentForm">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="You must select a country">
+      <nz-select
+        formControlName="country"
+        [nzPlaceHolder]="iconTemplate"
+        [nzCustomTemplate]="resultTemplate"
+      >
+        <nz-option
+          *ngFor="let country of countries"
+          [nzValue]="country.code"
+          [nzLabel]="country.name"
+        ></nz-option>
+      </nz-select>
+      <ng-template #iconTemplate>
+        <span
+          nz-icon
+          nzType="flag"
+          nzTheme="outline"
+          class="label-icon"
+          [ngClass]="{ error: hasError }"
+        ></span>
+        Select your country
+      </ng-template>
+      <ng-template #resultTemplate let-selected>
+        <span nz-icon nzType="flag" nzTheme="outline"></span>
+        {{ selected.nzLabel }}
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+</ng-container>

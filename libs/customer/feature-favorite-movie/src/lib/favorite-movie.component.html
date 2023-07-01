@@ -1,9 +1,40 @@
 <h1>customer-favorite-movie</h1>
 
-<table class="table">
-  <tr *ngFor="let movies of moviesList$ | async">
-    <td>{{ movies.id }}</td>
-    <td>{{ movies.name }}</td>
-    <td>{{ movies.description }}</td>
-  </tr>
-</table>
+<form
+  nz-form
+  [formGroup]="customerForm"
+  class="customer-form"
+  (ngSubmit)="submitForm()"
+>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your name!">
+      <nz-input-group nzPrefixIcon="smile">
+        <input type="text" nz-input formControlName="name" placeholder="Name" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please type a valid email">
+      <nz-input-group nzPrefixIcon="user">
+        <input
+          type="text"
+          nz-input
+          formControlName="userName"
+          placeholder="Username (email)"
+        />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
+  <common-ui-country-selection [parentForm]="customerForm">
+    ></common-ui-country-selection
+  >
+
+  <button
+    nz-button
+    class="customer-form-button customer-form-margin"
+    [nzType]="'primary'"
+  >
+    Send
+  </button>
+</form>
