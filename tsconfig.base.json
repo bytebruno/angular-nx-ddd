@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@angular-nx-ddd/customer/domain": ["libs/customer/domain/src/index.ts"],
+      "@angular-nx-ddd/customer/feature-favorite-movie": [
+        "libs/customer/feature-favorite-movie/src/index.ts"
+      ],
       "@angular-nx-ddd/shared/ui-common": ["libs/shared/ui-common/src/index.ts"]
     }
   },

@@ -1,16 +1,16 @@
 {
-  "name": "shared-ui-common",
+  "name": "customer-feature-favorite-movie",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/shared/ui-common/src",
-  "prefix": "common-ui",
-  "tags": ["domain:shared", "type:ui"],
+  "sourceRoot": "libs/customer/feature-favorite-movie/src",
+  "prefix": "customer",
+  "tags": ["domain:customer", "type:feature"],
   "projectType": "library",
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/shared/ui-common/jest.config.ts",
+        "jestConfig": "libs/customer/feature-favorite-movie/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -25,8 +25,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/shared/ui-common/**/*.ts",
-          "libs/shared/ui-common/**/*.html"
+          "libs/customer/feature-favorite-movie/**/*.ts",
+          "libs/customer/feature-favorite-movie/**/*.html"
         ]
       }
     }

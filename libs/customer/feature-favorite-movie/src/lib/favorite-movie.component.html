@@ -1,0 +1,9 @@
+<h1>customer-favorite-movie</h1>
+
+<table class="table">
+  <tr *ngFor="let movies of moviesList$ | async">
+    <td>{{ movies.id }}</td>
+    <td>{{ movies.name }}</td>
+    <td>{{ movies.description }}</td>
+  </tr>
+</table>

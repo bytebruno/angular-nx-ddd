@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { NgModule } from '@angular/core';
+
+import { MainLayoutComponent } from '@angular-nx-ddd/shared/ui-common';
 
 export const APP_ROUTES: Routes = [
   {
@@ -9,8 +10,17 @@ export const APP_ROUTES: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'enter',
-    component: NxWelcomeComponent,
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: 'enter',
+        loadChildren: () =>
+          import('@angular-nx-ddd/customer/feature-favorite-movie').then(
+            (m) => m.CustomerFeatureFavoriteMovieModule
+          ),
+      },
+    ],
   },
   {
     path: '**',
