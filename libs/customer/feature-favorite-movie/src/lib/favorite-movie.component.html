@@ -7,28 +7,45 @@
   (ngSubmit)="submitForm()"
 >
   <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your name!">
+    <nz-form-control [nzErrorTip]="nameErrorTemplate">
       <nz-input-group nzPrefixIcon="smile">
         <input type="text" nz-input formControlName="name" placeholder="Name" />
+        <ng-template #nameErrorTemplate let-control>
+          <ng-container *ngIf="control.hasError('required')"
+            >Please type your name!</ng-container
+          >
+          <ng-container *ngIf="control.hasError('pattern')"
+            >Please type only letters here!</ng-container
+          >
+        </ng-template>
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control nzErrorTip="Please type a valid email">
-      <nz-input-group nzPrefixIcon="user">
+      <nz-input-group nzPrefixIcon="mail">
         <input
           type="text"
           nz-input
           formControlName="userName"
-          placeholder="Username (email)"
+          placeholder="Username"
         />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
 
-  <common-ui-country-selection [parentForm]="customerForm">
+  <common-ui-country-selection
+    [parentForm]="customerForm"
+    controlName="country"
+  >
     ></common-ui-country-selection
   >
+
+  <common-ui-postcode-input
+    [parentForm]="customerForm"
+    controlName="postCode"
+    countryControlName="country"
+  ></common-ui-postcode-input>
 
   <button
     nz-button

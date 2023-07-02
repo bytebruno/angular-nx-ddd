@@ -19,7 +19,15 @@
       "@angular-nx-ddd/customer/feature-favorite-movie": [
         "libs/customer/feature-favorite-movie/src/index.ts"
       ],
-      "@angular-nx-ddd/shared/ui-common": ["libs/shared/ui-common/src/index.ts"]
+      "@angular-nx-ddd/shared/ui-common": [
+        "libs/shared/ui-common/src/index.ts"
+      ],
+      "@angular-nx-ddd/shared/util-country": [
+        "libs/shared/util-country/src/index.ts"
+      ],
+      "@angular-nx-ddd/shared/util-post-code": [
+        "libs/shared/util-post-code/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

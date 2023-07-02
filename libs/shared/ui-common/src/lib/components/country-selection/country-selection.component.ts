@@ -1,10 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-
-interface Country {
-  code: string;
-  name: string;
-}
+import { CountryUtil } from '@angular-nx-ddd/shared/util-country';
 
 @Component({
   selector: 'common-ui-country-selection',
@@ -12,17 +8,11 @@ interface Country {
   styleUrls: ['./country-selection.component.scss'],
 })
 export class CountrySelectionComponent {
-  @Input() parentForm: FormGroup = new FormGroup({});
+  @Input() parentForm: FormGroup | null = null;
+  @Input() controlName = '';
+  countries = CountryUtil.countries;
 
   get hasError() {
-    return (
-      this.parentForm.get('country')?.dirty &&
-      this.parentForm.get('country')?.invalid
-    );
+    return this.parentForm?.get(this.controlName)?.invalid;
   }
-
-  countries: Country[] = [
-    { name: 'Ireland', code: 'IE' },
-    { name: 'United Kingdom', code: 'UK' },
-  ];
 }

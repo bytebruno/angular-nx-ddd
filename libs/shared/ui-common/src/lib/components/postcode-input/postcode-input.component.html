@@ -1,0 +1,28 @@
+<ng-container [formGroup]="parentForm" *ngIf="parentForm">
+  <nz-form-item>
+    <nz-form-control [nzErrorTip]="postCodeErrorTemplate">
+      <nz-input-group nzPrefixIcon="home">
+        <input
+          type="text"
+          nz-input
+          [formControlName]="controlName"
+          placeholder="Post Code"
+        />
+        <ng-template #postCodeErrorTemplate let-control>
+          <ng-container *ngIf="control.hasError('required')"
+            >Please type the post code!</ng-container
+          >
+          <ng-container *ngIf="control.hasError('pattern')"
+            >Please type the post code correctly!</ng-container
+          >
+          <ng-container *ngIf="control.hasError('minlength')"
+            >Please type the post code correctly! Too small.</ng-container
+          >
+          <ng-container *ngIf="control.hasError('maxlength')"
+            >Please type the post code correctly! Too big.</ng-container
+          >
+        </ng-template>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+</ng-container>

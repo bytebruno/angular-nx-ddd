@@ -1,8 +1,8 @@
-<ng-container [formGroup]="parentForm">
+<ng-container [formGroup]="parentForm" *ngIf="parentForm">
   <nz-form-item>
     <nz-form-control nzErrorTip="You must select a country">
       <nz-select
-        formControlName="country"
+        [formControlName]="controlName"
         [nzPlaceHolder]="iconTemplate"
         [nzCustomTemplate]="resultTemplate"
       >

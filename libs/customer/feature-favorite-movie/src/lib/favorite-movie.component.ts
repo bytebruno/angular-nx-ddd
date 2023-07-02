@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoriteMovieFacade } from '@angular-nx-ddd/customer/domain';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { CountryCode } from '@angular-nx-ddd/shared/util-country';
 
 @Component({
   selector: 'customer-favorite-movie',
@@ -18,15 +24,22 @@ export class FavoriteMovieComponent implements OnInit {
 
   ngOnInit() {
     this.load();
-    this.customerForm = this.fb.group({
-      name: [null, [Validators.required]],
-      userName: [null, [Validators.email]],
-      country: [null, [Validators.required]],
-    });
-
-    this.customerForm.valueChanges.subscribe((newVal) => {
-      console.log(newVal);
-    });
+    this.customerForm = new FormGroup(
+      {
+        name: new FormControl<string>('', {
+          validators: [Validators.required, Validators.pattern('[a-zA-Z ]*')],
+        }),
+        userName: new FormControl<string>('', {
+          validators: [Validators.email],
+        }),
+        country: new FormControl<CountryCode | null>(null, {
+          validators: [Validators.required],
+          updateOn: 'change',
+        }),
+        postCode: new FormControl<string | null>(null),
+      },
+      { updateOn: 'submit' }
+    );
   }
 
   load(): void {
