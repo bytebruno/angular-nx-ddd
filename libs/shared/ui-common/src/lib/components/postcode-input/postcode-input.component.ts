@@ -1,4 +1,4 @@
-import { CountryCode } from '@angular-nx-ddd/shared/util-country';
+import { Country, CountryCode } from '@angular-nx-ddd/shared/util-country';
 import { PostCodeUtil } from '@angular-nx-ddd/shared/util-post-code';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -29,11 +29,11 @@ export class PostcodeInputComponent implements OnInit, OnDestroy {
 
     this.formSubscription = this.parentForm
       .get(this.countryControlName)
-      ?.valueChanges.subscribe((countryCode: CountryCode | null) => {
-        if (countryCode === null) return;
+      ?.valueChanges.subscribe((country: Country | null) => {
+        if (country === null) return;
 
         this.parentForm?.controls[this.controlName].setValidators(
-          PostCodeUtil.getPostCodeValidators(countryCode)
+          PostCodeUtil.getPostCodeValidators(country.code)
         );
 
         this.parentForm?.controls[this.controlName].updateValueAndValidity({

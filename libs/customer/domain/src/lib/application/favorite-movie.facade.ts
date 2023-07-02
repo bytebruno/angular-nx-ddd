@@ -7,9 +7,7 @@ import * as MoviesSelectors from '../+state/movies/movies.selectors';
 
 @Injectable({ providedIn: 'root' })
 export class FavoriteMovieFacade {
-  loaded$ = this.store.pipe(select(MoviesSelectors.getMoviesLoaded));
   moviesList$ = this.store.pipe(select(MoviesSelectors.getAllMovies));
-  selectedMovies$ = this.store.pipe(select(MoviesSelectors.getSelected));
 
   constructor(private store: Store<fromMovies.MoviesPartialState>) {}
 

@@ -1,11 +1,16 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { FavoriteMovieComponent } from './favorite-movie.component';
+import { FavoriteMovieComponent } from './screens/favorite-movie/favorite-movie.component';
+import { ThankYouComponent } from './screens/thank-you/thank-you.component';
 
 export const APP_ROUTES: Routes = [
   {
-    path: '',
+    path: 'enter',
     component: FavoriteMovieComponent,
+  },
+  {
+    path: 'thankyou',
+    component: ThankYouComponent,
   },
 ];
 

@@ -1,3 +1,3 @@
 export * from './lib/customer-feature-favorite-movie.module';
 
-export * from './lib/favorite-movie.component';
+export * from './lib/screens/favorite-movie/favorite-movie.component';

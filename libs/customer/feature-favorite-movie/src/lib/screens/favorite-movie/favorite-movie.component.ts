@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FavoriteMovieFacade, Movie } from '@angular-nx-ddd/customer/domain';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { CountryCode } from '@angular-nx-ddd/shared/util-country';
+  CustomerData,
+  CustomerDataFacade,
+  Movie,
+} from '@angular-nx-ddd/customer/domain';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Country } from '@angular-nx-ddd/shared/util-country';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'customer-favorite-movie',
@@ -18,8 +18,8 @@ export class FavoriteMovieComponent implements OnInit {
   customerForm!: FormGroup;
 
   constructor(
-    private favoriteMovieFacade: FavoriteMovieFacade,
-    private fb: FormBuilder
+    private router: Router,
+    private customerDataFacade: CustomerDataFacade
   ) {}
 
   ngOnInit() {
@@ -31,7 +31,7 @@ export class FavoriteMovieComponent implements OnInit {
         userName: new FormControl<string>('', {
           validators: [Validators.email],
         }),
-        country: new FormControl<CountryCode | null>(null, {
+        country: new FormControl<Country | null>(null, {
           validators: [Validators.required],
           updateOn: 'change',
         }),
@@ -46,7 +46,16 @@ export class FavoriteMovieComponent implements OnInit {
 
   submitForm(): void {
     if (this.customerForm.valid) {
-      console.log('submit', this.customerForm.value);
+      const customerData: CustomerData = {
+        name: this.customerForm.value.name,
+        userName: this.customerForm.value.userName,
+        country: this.customerForm.value.country.name,
+        postCode: this.customerForm.value.postCode,
+        favoriteMovie: this.customerForm.value.favoriteMovie?.Title,
+      };
+
+      this.customerDataFacade.setCustomerData(customerData);
+      this.router.navigate(['thankyou']);
     } else {
       Object.values(this.customerForm.controls).forEach((control) => {
         if (control.invalid) {

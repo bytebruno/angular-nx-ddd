@@ -14,7 +14,7 @@ export const APP_ROUTES: Routes = [
     component: MainLayoutComponent,
     children: [
       {
-        path: 'enter',
+        path: '',
         loadChildren: () =>
           import('@angular-nx-ddd/customer/feature-favorite-movie').then(
             (m) => m.CustomerFeatureFavoriteMovieModule

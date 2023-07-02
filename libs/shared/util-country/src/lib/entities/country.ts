@@ -1,4 +1,6 @@
+import { CountryCode } from '../country-util';
+
 export interface Country {
-  code: string;
+  code: CountryCode;
   name: string;
 }
