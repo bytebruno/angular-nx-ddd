@@ -1,0 +1,28 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .customer-data {
+    &-card {
+      max-width: 450px;
+      min-width: 300px;
+      width: 100%;
+
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+      &-body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      &-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
+}

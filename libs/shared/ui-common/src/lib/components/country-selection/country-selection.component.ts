@@ -13,6 +13,9 @@ export class CountrySelectionComponent {
   countries = CountryUtil.countries;
 
   get hasError() {
-    return this.parentForm?.get(this.controlName)?.invalid;
+    return (
+      this.parentForm?.get(this.controlName)?.touched &&
+      this.parentForm?.get(this.controlName)?.invalid
+    );
   }
 }

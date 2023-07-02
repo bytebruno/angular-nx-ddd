@@ -1,62 +1,69 @@
-<h1>customer-favorite-movie</h1>
+<div class="content">
+  <nz-card class="customer-card" nzTitle="Customer Form">
+    <form
+      nz-form
+      [formGroup]="customerForm"
+      class="customer-form"
+      (ngSubmit)="submitForm()"
+    >
+      <nz-form-item>
+        <nz-form-control [nzErrorTip]="nameErrorTemplate">
+          <nz-input-group nzPrefixIcon="smile">
+            <input
+              type="text"
+              nz-input
+              formControlName="name"
+              placeholder="Name"
+            />
+            <ng-template #nameErrorTemplate let-control>
+              <ng-container *ngIf="control.hasError('required')"
+                >Please type your name!</ng-container
+              >
+              <ng-container *ngIf="control.hasError('pattern')"
+                >Please type only letters here!</ng-container
+              >
+            </ng-template>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please type a valid email">
+          <nz-input-group nzPrefixIcon="mail">
+            <input
+              type="text"
+              nz-input
+              formControlName="userName"
+              placeholder="Username"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
 
-<form
-  nz-form
-  [formGroup]="customerForm"
-  class="customer-form"
-  (ngSubmit)="submitForm()"
->
-  <nz-form-item>
-    <nz-form-control [nzErrorTip]="nameErrorTemplate">
-      <nz-input-group nzPrefixIcon="smile">
-        <input type="text" nz-input formControlName="name" placeholder="Name" />
-        <ng-template #nameErrorTemplate let-control>
-          <ng-container *ngIf="control.hasError('required')"
-            >Please type your name!</ng-container
-          >
-          <ng-container *ngIf="control.hasError('pattern')"
-            >Please type only letters here!</ng-container
-          >
-        </ng-template>
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-control nzErrorTip="Please type a valid email">
-      <nz-input-group nzPrefixIcon="mail">
-        <input
-          type="text"
-          nz-input
-          formControlName="userName"
-          placeholder="Username"
-        />
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
+      <common-ui-country-selection
+        [parentForm]="customerForm"
+        controlName="country"
+      >
+        ></common-ui-country-selection
+      >
 
-  <common-ui-country-selection
-    [parentForm]="customerForm"
-    controlName="country"
-  >
-    ></common-ui-country-selection
-  >
+      <common-ui-postcode-input
+        [parentForm]="customerForm"
+        controlName="postCode"
+        countryControlName="country"
+      ></common-ui-postcode-input>
 
-  <common-ui-postcode-input
-    [parentForm]="customerForm"
-    controlName="postCode"
-    countryControlName="country"
-  ></common-ui-postcode-input>
+      <customer-movies-autocomplete
+        [parentForm]="customerForm"
+        controlName="favoriteMovie"
+      ></customer-movies-autocomplete>
 
-  <customer-movies-autocomplete
-    [parentForm]="customerForm"
-    controlName="favoriteMovie"
-  ></customer-movies-autocomplete>
-
-  <button
-    nz-button
-    class="customer-form-button customer-form-margin"
-    [nzType]="'primary'"
-  >
-    Submit
-  </button>
-</form>
+      <button
+        nz-button
+        class="customer-form-button customer-form-margin"
+        [nzType]="'primary'"
+      >
+        Submit
+      </button>
+    </form>
+  </nz-card>
+</div>

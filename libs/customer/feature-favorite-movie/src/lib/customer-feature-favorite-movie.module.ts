@@ -6,6 +6,7 @@ import { CustomerFeatureFavoriteMovieRoutingModule } from './customer-feature-fa
 import { SharedUiCommonModule } from '@angular-nx-ddd/shared/ui-common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MoviesAutocompleteComponent } from './components/movies-autocomplete/movies-autocomplete.component';
+import { ThankYouComponent } from './screens/thank-you/thank-you.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,11 @@ import { MoviesAutocompleteComponent } from './components/movies-autocomplete/mo
     SharedUiCommonModule,
     ReactiveFormsModule,
   ],
-  declarations: [FavoriteMovieComponent, MoviesAutocompleteComponent],
+  declarations: [
+    FavoriteMovieComponent,
+    MoviesAutocompleteComponent,
+    ThankYouComponent,
+  ],
   exports: [FavoriteMovieComponent],
 })
 export class CustomerFeatureFavoriteMovieModule {}

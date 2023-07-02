@@ -1,13 +1,24 @@
-.customer {
-  &-form {
-    max-width: 300px;
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 
-    &-margin {
-      margin-bottom: 16px;
-    }
-
-    &-button {
+  .customer {
+    &-card {
+      max-width: 450px;
+      min-width: 300px;
       width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    &-form {
+      &-margin {
+        margin-bottom: 16px;
+      }
+
+      &-button {
+        width: 100%;
+      }
     }
   }
 }

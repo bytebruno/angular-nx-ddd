@@ -6,6 +6,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 const IMPORTS_EXPORTS = [
   NzGridModule,
@@ -15,6 +16,7 @@ const IMPORTS_EXPORTS = [
   NzIconModule,
   NzSelectModule,
   NzAutocompleteModule,
+  NzCardModule,
 ];
 
 @NgModule({
