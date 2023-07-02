@@ -1,11 +1,14 @@
 import { createAction, props } from '@ngrx/store';
-import { Movies } from '../../entities/movies';
+import { Movie } from '../../entities/movie';
 
-export const loadMovies = createAction('[Movies] Load Movies');
+export const loadMovies = createAction(
+  '[Movies] Load Movies',
+  props<{ search: string }>()
+);
 
 export const loadMoviesSuccess = createAction(
   '[Movies] Load Movies Success',
-  props<{ movies: Movies[] }>()
+  props<{ movies: Movie[] }>()
 );
 
 export const loadMoviesFailure = createAction(

@@ -13,7 +13,7 @@ export class FavoriteMovieFacade {
 
   constructor(private store: Store<fromMovies.MoviesPartialState>) {}
 
-  load(): void {
-    this.store.dispatch(loadMovies());
+  search(search: string): void {
+    this.store.dispatch(loadMovies({ search }));
   }
 }

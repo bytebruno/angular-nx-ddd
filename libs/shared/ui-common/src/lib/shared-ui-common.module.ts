@@ -10,6 +10,7 @@ import {
   FlagOutline,
   SmileOutline,
   MailOutline,
+  StarOutline,
 } from '@ant-design/icons-angular/icons';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular/types';
@@ -24,6 +25,7 @@ const icons: IconDefinition[] = [
   SmileOutline,
   FlagOutline,
   MailOutline,
+  StarOutline,
 ];
 
 @NgModule({

@@ -47,11 +47,16 @@
     countryControlName="country"
   ></common-ui-postcode-input>
 
+  <customer-movies-autocomplete
+    [parentForm]="customerForm"
+    controlName="favoriteMovie"
+  ></customer-movies-autocomplete>
+
   <button
     nz-button
     class="customer-form-button customer-form-margin"
     [nzType]="'primary'"
   >
-    Send
+    Submit
   </button>
 </form>

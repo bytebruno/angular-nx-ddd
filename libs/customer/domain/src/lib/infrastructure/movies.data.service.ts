@@ -1,33 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { Movies } from '../entities/movies';
+import { Observable } from 'rxjs';
+import { LoadMovieRes } from '../entities/dto/loadMovieRes';
 
 @Injectable({ providedIn: 'root' })
 export class MoviesDataService {
   constructor(private http: HttpClient) {}
 
-  load(): Observable<Movies[]> {
-    // Uncomment if needed
-    /*
-        const url = '...';
-        const params = new HttpParams().set('param', 'value');
-        const headers = new HttpHeaders().set('Accept', 'application/json');
-        return this.http.get<Movies[]>(url, {params, headers});
-        */
+  private _apiUrl = 'https://www.omdbapi.com/';
+  private _apiKey = '83513884';
 
-    return of([
-      { id: 1, name: 'Lorem ipsum', description: 'Lorem ipsum dolor sit amet' },
-      {
-        id: 2,
-        name: 'At vero eos',
-        description: 'At vero eos et accusam et justo duo dolores',
-      },
-      {
-        id: 3,
-        name: 'Duis autem',
-        description: 'Duis autem vel eum iriure dolor in hendrerit',
-      },
-    ]);
+  load(search: string): Observable<LoadMovieRes> {
+    const params = new HttpParams()
+      .set('apiKey', this._apiKey)
+      .set('type', 'movie')
+      .set('s', search);
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this.http.get<LoadMovieRes>(this._apiUrl, { params, headers });
   }
 }

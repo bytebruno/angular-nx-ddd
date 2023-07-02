@@ -1,6 +1,6 @@
 export * from './lib/customer-domain.module';
 
-export * from './lib/entities/movies';
+export * from './lib/entities/movie';
 export * from './lib/infrastructure/movies.data.service';
 
 export * from './lib/+state/movies/movies.actions';

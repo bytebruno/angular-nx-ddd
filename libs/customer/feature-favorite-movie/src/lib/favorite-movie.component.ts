@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FavoriteMovieFacade } from '@angular-nx-ddd/customer/domain';
+import { FavoriteMovieFacade, Movie } from '@angular-nx-ddd/customer/domain';
 import {
   FormBuilder,
   FormControl,
@@ -14,7 +14,7 @@ import { CountryCode } from '@angular-nx-ddd/shared/util-country';
   styleUrls: ['./favorite-movie.component.scss'],
 })
 export class FavoriteMovieComponent implements OnInit {
-  moviesList$ = this.favoriteMovieFacade.moviesList$;
+  moviesList: string[] = [];
   customerForm!: FormGroup;
 
   constructor(
@@ -23,7 +23,6 @@ export class FavoriteMovieComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.load();
     this.customerForm = new FormGroup(
       {
         name: new FormControl<string>('', {
@@ -37,13 +36,12 @@ export class FavoriteMovieComponent implements OnInit {
           updateOn: 'change',
         }),
         postCode: new FormControl<string | null>(null),
+        favoriteMovie: new FormControl<Movie | null>(null, {
+          updateOn: 'change',
+        }),
       },
       { updateOn: 'submit' }
     );
-  }
-
-  load(): void {
-    this.favoriteMovieFacade.load();
   }
 
   submitForm(): void {
