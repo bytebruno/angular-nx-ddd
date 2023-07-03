@@ -2,7 +2,11 @@
   "name": "@angular-nx-ddd/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve customer",
+    "test": "npx nx run-many --all --target=test --parallel",
+    "build": "nx build customer"
+  },
   "private": true,
   "dependencies": {
     "@angular-architects/ddd": "^3.1.1",
