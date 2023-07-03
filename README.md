@@ -12,8 +12,13 @@ Angular form with validations using Angular 16 (DDD approach), Nx, NgRx, RxJS, J
 #### Run tests
 
 - Run unit tests - `npm run test`
-- Run e2e tests  - `npm run e2e`
-  - Seeing on browser  - `npm run e2e:watch`
+- Run e2e tests - `npm run e2e`
+  - Seeing on browser - `npm run e2e:watch`
+
+#### Other commands
+
+- Run build - `npm run build`
+- Run lint - `npm run lint`
 
 ## Technologies
 
@@ -32,8 +37,9 @@ Angular form with validations using Angular 16 (DDD approach), Nx, NgRx, RxJS, J
 ![Form with validation](docs/screenshots/form-01.png)
 
 ### Form with autocomplete
+
 ![Form with autocomplete](docs/screenshots/form-02.png)
 
-
 ### Summary after submit
+
 ![Form with autocomplete](docs/screenshots/thankyou.png)
