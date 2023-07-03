@@ -1,4 +1,4 @@
-import { Country, CountryCode } from '@angular-nx-ddd/shared/util-country';
+import { Country } from '@angular-nx-ddd/shared/util-country';
 import { PostCodeUtil } from '@angular-nx-ddd/shared/util-post-code';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -17,14 +17,14 @@ export class PostcodeInputComponent implements OnInit, OnDestroy {
   private formSubscription: Subscription | undefined = new Subscription();
 
   ngOnInit(): void {
-    this.listenParentFormForCountryCodeChanges();
+    this.listenParentFormForCountryChanges();
   }
 
   ngOnDestroy(): void {
     this.formSubscription?.unsubscribe();
   }
 
-  listenParentFormForCountryCodeChanges() {
+  listenParentFormForCountryChanges() {
     if (!this.parentForm) return;
 
     this.formSubscription = this.parentForm
