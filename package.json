@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve customer",
+    "start": "npx nx serve customer",
     "test": "npx nx run-many --all --target=test --parallel",
-    "build": "nx build customer"
+    "e2e": "npx nx e2e customer-e2e",
+    "e2e:watch": "npx nx e2e customer-e2e --watch",
+    "build": "npx nx build customer"
   },
   "private": true,
   "dependencies": {
