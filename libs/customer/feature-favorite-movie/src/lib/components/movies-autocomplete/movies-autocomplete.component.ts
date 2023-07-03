@@ -24,6 +24,24 @@ export class MoviesAutocompleteComponent implements OnInit, OnDestroy {
   constructor(private favoriteMovieFacade: FavoriteMovieFacade) {}
 
   ngOnInit(): void {
+    this._initializeComponent();
+  }
+
+  ngOnDestroy(): void {
+    this.inputSubscription?.unsubscribe();
+  }
+
+  onBlur(): void {
+    if (this.searchForm?.controls['search'].value?.length === 0) {
+      this._setValueOnParentForm(null);
+    }
+  }
+
+  onSelect(movie: Movie): void {
+    this._setValueOnParentForm(movie);
+  }
+
+  _initializeComponent(): void {
     if (!this.parentForm) return;
 
     this.searchForm = new FormGroup({
@@ -42,21 +60,7 @@ export class MoviesAutocompleteComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
-  ngOnDestroy(): void {
-    this.inputSubscription?.unsubscribe();
-  }
-
-  onBlur(): void {
-    if (this.searchForm?.controls['search'].value?.length === 0) {
-      this._setValueOnParentForm(null);
-    }
-  }
-
-  onSelect(movie: Movie): void {
-    this._setValueOnParentForm(movie);
-  }
-
-  private _setValueOnParentForm(movie: Movie | null) {
+  _setValueOnParentForm(movie: Movie | null) {
     this.parentForm?.controls[this.controlName].setValue(movie);
   }
 }
