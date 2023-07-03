@@ -14,8 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./favorite-movie.component.scss'],
 })
 export class FavoriteMovieComponent implements OnInit {
-  moviesList: string[] = [];
-  customerForm!: FormGroup;
+  customerForm: FormGroup | null = null;
 
   constructor(
     private router: Router,
@@ -23,6 +22,24 @@ export class FavoriteMovieComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this._initializeForm();
+  }
+
+  submitForm(): void {
+    if (this.customerForm.valid) {
+      this.customerDataFacade.setCustomerData(this._mapFormToCustomerData());
+      this.router.navigate(['thankyou']);
+    } else {
+      Object.values(this.customerForm.controls).forEach((control) => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
+    }
+  }
+
+  _initializeForm(): void {
     this.customerForm = new FormGroup(
       {
         name: new FormControl<string>('', {
@@ -44,25 +61,13 @@ export class FavoriteMovieComponent implements OnInit {
     );
   }
 
-  submitForm(): void {
-    if (this.customerForm.valid) {
-      const customerData: CustomerData = {
-        name: this.customerForm.value.name,
-        userName: this.customerForm.value.userName,
-        country: this.customerForm.value.country.name,
-        postCode: this.customerForm.value.postCode,
-        favoriteMovie: this.customerForm.value.favoriteMovie?.Title,
-      };
-
-      this.customerDataFacade.setCustomerData(customerData);
-      this.router.navigate(['thankyou']);
-    } else {
-      Object.values(this.customerForm.controls).forEach((control) => {
-        if (control.invalid) {
-          control.markAsDirty();
-          control.updateValueAndValidity({ onlySelf: true });
-        }
-      });
-    }
+  _mapFormToCustomerData(): CustomerData {
+    return {
+      name: this.customerForm.value.name,
+      userName: this.customerForm.value.userName,
+      country: this.customerForm.value.country.name,
+      postCode: this.customerForm.value.postCode,
+      favoriteMovie: this.customerForm.value.favoriteMovie?.Title || null,
+    };
   }
 }
