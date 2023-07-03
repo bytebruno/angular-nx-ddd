@@ -26,6 +26,8 @@ export class FavoriteMovieComponent implements OnInit {
   }
 
   submitForm(): void {
+    if (!this.customerForm) return;
+
     if (this.customerForm.valid) {
       this.customerDataFacade.setCustomerData(this._mapFormToCustomerData());
       this.router.navigate(['thankyou']);
@@ -63,11 +65,11 @@ export class FavoriteMovieComponent implements OnInit {
 
   _mapFormToCustomerData(): CustomerData {
     return {
-      name: this.customerForm.value.name,
-      userName: this.customerForm.value.userName,
-      country: this.customerForm.value.country.name,
-      postCode: this.customerForm.value.postCode,
-      favoriteMovie: this.customerForm.value.favoriteMovie?.Title || null,
+      name: this.customerForm?.value.name,
+      userName: this.customerForm?.value.userName,
+      country: this.customerForm?.value.country.name,
+      postCode: this.customerForm?.value.postCode,
+      favoriteMovie: this.customerForm?.value.favoriteMovie?.Title || null,
     };
   }
 }
