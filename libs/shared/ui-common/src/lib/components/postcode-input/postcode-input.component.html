@@ -7,6 +7,7 @@
           nz-input
           [formControlName]="controlName"
           placeholder="Post Code"
+          data-cy="postcode-input"
         />
         <ng-template #postCodeErrorTemplate let-control>
           <ng-container *ngIf="control.hasError('required')"

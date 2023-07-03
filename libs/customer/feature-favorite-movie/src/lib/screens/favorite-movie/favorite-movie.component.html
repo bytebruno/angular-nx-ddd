@@ -14,6 +14,7 @@
               nz-input
               formControlName="name"
               placeholder="Name"
+              data-cy="name-input"
             />
             <ng-template #nameErrorTemplate let-control>
               <ng-container *ngIf="control.hasError('required')"
@@ -34,6 +35,7 @@
               nz-input
               formControlName="userName"
               placeholder="Username"
+              data-cy="username-input"
             />
           </nz-input-group>
         </nz-form-control>
@@ -61,6 +63,7 @@
         nz-button
         class="customer-form-button customer-form-margin"
         [nzType]="'primary'"
+        data-cy="submit-button"
       >
         Submit
       </button>

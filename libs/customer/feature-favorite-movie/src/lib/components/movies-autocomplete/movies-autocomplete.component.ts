@@ -51,7 +51,7 @@ export class MoviesAutocompleteComponent implements OnInit, OnDestroy {
     this.inputSubscription = this.searchForm.controls['search'].valueChanges
       .pipe(
         filter((term) => term.length > 2),
-        debounceTime(400),
+        debounceTime(300),
         distinctUntilChanged(),
         map((term) => {
           this.favoriteMovieFacade.search(term);

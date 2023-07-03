@@ -3,6 +3,7 @@
     class="customer-data-card"
     nzTitle="Thank you!"
     *ngIf="customerData$ | async as customerData"
+    data-cy="customer-data-card"
   >
     <div class="customer-data-card-body">
       <div class="customer-data-card-info" *ngIf="customerData.name">
