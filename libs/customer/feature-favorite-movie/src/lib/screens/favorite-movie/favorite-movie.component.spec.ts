@@ -40,7 +40,7 @@ describe('FavoriteMovieComponent', () => {
           { path: 'thankyou', component: ThankYouComponent },
         ]),
       ],
-      declarations: [
+      imports: [
         FavoriteMovieComponent,
         MoviesAutocompleteComponent,
         ThankYouComponent,
@@ -70,7 +70,7 @@ describe('FavoriteMovieComponent', () => {
     component.customerForm.setValue(minValidFormValues);
     component.submitForm();
 
-    expect(setCustomerDataSpy).toBeCalledWith(minValidCustomerDataValues);
+    expect(setCustomerDataSpy).toHaveBeenCalledWith(minValidCustomerDataValues);
   });
 
   it('should not set customer data when submit is pressed with an invalid form', () => {
@@ -81,7 +81,9 @@ describe('FavoriteMovieComponent', () => {
     component.customerForm.setValue({ ...minValidFormValues, name: null });
     component.submitForm();
 
-    expect(setCustomerDataSpy).not.toBeCalledWith(minValidCustomerDataValues);
+    expect(setCustomerDataSpy).not.toHaveBeenCalledWith(
+      minValidCustomerDataValues
+    );
   });
 
   it('should redirect to thankyou when submit is pressed with a valid form', () => {
@@ -89,7 +91,7 @@ describe('FavoriteMovieComponent', () => {
     component.customerForm.setValue(minValidFormValues);
     component.submitForm();
 
-    expect(routerSpy).toBeCalledWith(['thankyou']);
+    expect(routerSpy).toHaveBeenCalledWith(['thankyou']);
   });
 
   it('should not redirect to thankyou when submit is pressed with a invalid form', () => {
@@ -97,7 +99,7 @@ describe('FavoriteMovieComponent', () => {
     component.customerForm.setValue({ ...minValidFormValues, name: null });
     component.submitForm();
 
-    expect(routerSpy).not.toBeCalledWith(['thankyou']);
+    expect(routerSpy).not.toHaveBeenCalledWith(['thankyou']);
   });
 
   it('Name field should be required', () => {

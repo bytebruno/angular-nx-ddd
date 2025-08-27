@@ -15,12 +15,11 @@ import { ThankYouComponent } from './screens/thank-you/thank-you.component';
     CustomerFeatureFavoriteMovieRoutingModule,
     SharedUiCommonModule,
     ReactiveFormsModule,
-  ],
-  declarations: [
     FavoriteMovieComponent,
     MoviesAutocompleteComponent,
     ThankYouComponent,
   ],
+  declarations: [],
   exports: [FavoriteMovieComponent],
 })
 export class CustomerFeatureFavoriteMovieModule {}

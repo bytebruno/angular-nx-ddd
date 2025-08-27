@@ -1,13 +1,23 @@
 import { Country } from '@angular-nx-ddd/shared/util-country';
 import { PostCodeUtil } from '@angular-nx-ddd/shared/util-post-code';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'common-ui-postcode-input',
   templateUrl: './postcode-input.component.html',
   styleUrls: ['./postcode-input.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    NzFormModule,
+    NzInputModule,
+  ],
 })
 export class PostcodeInputComponent implements OnInit, OnDestroy {
   @Input() parentForm: FormGroup | null = null;

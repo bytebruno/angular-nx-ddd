@@ -4,14 +4,41 @@ import {
   CustomerDataFacade,
   Movie,
 } from '@angular-nx-ddd/customer/domain';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Country } from '@angular-nx-ddd/shared/util-country';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import {
+  CountrySelectionComponent,
+  PostcodeInputComponent,
+} from '@angular-nx-ddd/shared/ui-common';
+import { MoviesAutocompleteComponent } from '../../components/movies-autocomplete/movies-autocomplete.component';
 
 @Component({
   selector: 'customer-favorite-movie',
   templateUrl: './favorite-movie.component.html',
   styleUrls: ['./favorite-movie.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    NzCardModule,
+    NzFormModule,
+    NzInputModule,
+    NzButtonModule,
+    CountrySelectionComponent,
+    PostcodeInputComponent,
+    MoviesAutocompleteComponent,
+  ],
 })
 export class FavoriteMovieComponent implements OnInit {
   customerForm: FormGroup | null = null;

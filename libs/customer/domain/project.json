@@ -3,8 +3,8 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/customer/domain/src",
   "prefix": "customer",
-  "tags": ["domain:customer", "type:domain-logic"],
   "projectType": "library",
+  "tags": ["domain:customer", "type:domain-logic"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",

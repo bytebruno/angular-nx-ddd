@@ -17,8 +17,9 @@ import { SharedUiCommonModule } from '@angular-nx-ddd/shared/ui-common';
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [],
   imports: [
+    AppComponent,
     AppRoutingModule,
     BrowserModule,
     StoreModule.forRoot({}),

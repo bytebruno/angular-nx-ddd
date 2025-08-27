@@ -13,7 +13,7 @@ import {
   StarOutline,
 } from '@ant-design/icons-angular/icons';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { IconDefinition } from '@ant-design/icons-angular/types';
+import { IconDefinition } from '@ant-design/icons-angular';
 import { CountrySelectionModule } from './components/country-selection/country-selection.module';
 
 const DECLARES_EXPORTS = [MainLayoutComponent, PostcodeInputComponent];
@@ -36,8 +36,9 @@ const icons: IconDefinition[] = [
     ReactiveFormsModule,
     NzIconModule.forRoot(icons),
     ...IMPORTS_EXPORTS,
+    ...DECLARES_EXPORTS,
   ],
-  declarations: [...DECLARES_EXPORTS],
+  declarations: [],
   exports: [...DECLARES_EXPORTS, ...IMPORTS_EXPORTS, NgZorroModule],
 })
 export class SharedUiCommonModule {}

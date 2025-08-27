@@ -11,8 +11,11 @@ describe('MoviesAutocompleteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, SharedUiCommonModule],
-      declarations: [MoviesAutocompleteComponent],
+      imports: [
+        ReactiveFormsModule,
+        SharedUiCommonModule,
+        MoviesAutocompleteComponent,
+      ],
       providers: [provideMockStore({})],
     }).compileComponents();
 
@@ -62,8 +65,8 @@ describe('MoviesAutocompleteComponent', () => {
     component.searchForm.controls['search'].setValue('');
     component.onBlur();
 
-    expect(setValueSpy).toBeCalledWith(null);
-    expect(parentFormSpy).toBeCalledWith(null);
+    expect(setValueSpy).toHaveBeenCalledWith(null);
+    expect(parentFormSpy).toHaveBeenCalledWith(null);
   });
 
   it('should not set null on parentForm if input is filled onBlur', () => {
@@ -76,8 +79,8 @@ describe('MoviesAutocompleteComponent', () => {
     component.searchForm.controls['search'].setValue('hello');
     component.onBlur();
 
-    expect(setValueSpy).not.toBeCalledWith(null);
-    expect(parentFormSpy).not.toBeCalledWith(null);
+    expect(setValueSpy).not.toHaveBeenCalledWith(null);
+    expect(parentFormSpy).not.toHaveBeenCalledWith(null);
   });
 
   it('should set the movie on parentForm onSelect', () => {
@@ -98,7 +101,7 @@ describe('MoviesAutocompleteComponent', () => {
     component.onSelect(movie);
     fixture.detectChanges();
 
-    expect(setValueSpy).toBeCalledWith(movie);
-    expect(parentFormSpy).toBeCalledWith(movie);
+    expect(setValueSpy).toHaveBeenCalledWith(movie);
+    expect(parentFormSpy).toHaveBeenCalledWith(movie);
   });
 });

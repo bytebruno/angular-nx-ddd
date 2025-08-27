@@ -20,7 +20,7 @@ describe('CountrySelectionComponent', () => {
         NoopAnimationsModule,
         HttpClientTestingModule,
       ],
-      declarations: [CountrySelectionComponent],
+      imports: [CountrySelectionComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CountrySelectionComponent);

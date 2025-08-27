@@ -12,8 +12,12 @@ describe('PostcodeInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, ReactiveFormsModule, SharedUiCommonModule],
-      declarations: [PostcodeInputComponent],
+      imports: [
+        RouterTestingModule,
+        ReactiveFormsModule,
+        SharedUiCommonModule,
+        PostcodeInputComponent,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PostcodeInputComponent);

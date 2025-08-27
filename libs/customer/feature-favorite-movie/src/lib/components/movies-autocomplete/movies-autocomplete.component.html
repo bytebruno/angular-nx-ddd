@@ -1,26 +1,29 @@
-<ng-container [formGroup]="searchForm" *ngIf="parentForm && searchForm">
-  <nz-form-item>
-    <nz-form-control>
-      <nz-input-group nzPrefixIcon="star">
-        <input
-          placeholder="Favorite movie"
-          nz-input
-          [nzAutocomplete]="auto"
-          formControlName="search"
-          (blur)="onBlur()"
-          data-cy="movie-autocomplete"
-        />
-        <nz-autocomplete #auto>
-          <nz-auto-option
-            *ngFor="let movie of moviesList$ | async"
-            [nzValue]="movie"
-            [nzLabel]="movie.Title"
-            (click)="onSelect(movie)"
-          >
-            {{ movie.Title }}
-          </nz-auto-option>
-        </nz-autocomplete>
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
-</ng-container>
+@if (parentForm && searchForm) {
+  <ng-container [formGroup]="searchForm">
+    <nz-form-item>
+      <nz-form-control>
+        <nz-input-group nzPrefixIcon="star">
+          <input
+            placeholder="Favorite movie"
+            nz-input
+            [nzAutocomplete]="auto"
+            formControlName="search"
+            (blur)="onBlur()"
+            data-cy="movie-autocomplete"
+            />
+          <nz-autocomplete #auto>
+            @for (movie of moviesList$ | async; track movie) {
+              <nz-auto-option
+                [nzValue]="movie"
+                [nzLabel]="movie.Title"
+                (click)="onSelect(movie)"
+                >
+                {{ movie.Title }}
+              </nz-auto-option>
+            }
+          </nz-autocomplete>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+  </ng-container>
+}

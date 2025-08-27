@@ -5,14 +5,13 @@ import { CustomerData } from '@angular-nx-ddd/customer/domain';
 import { SharedUiCommonModule } from '@angular-nx-ddd/shared/ui-common';
 import { By } from '@angular/platform-browser';
 
-describe.only('ThankYouComponent', () => {
+describe('ThankYouComponent', () => {
   let component: ThankYouComponent;
   let fixture: ComponentFixture<ThankYouComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SharedUiCommonModule],
-      declarations: [ThankYouComponent],
+      imports: [SharedUiCommonModule, ThankYouComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ThankYouComponent);

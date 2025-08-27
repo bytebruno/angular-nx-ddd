@@ -1,6 +1,6 @@
 import { FavoriteMovieFacade, Movie } from '@angular-nx-ddd/customer/domain';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {
   Subscription,
   debounceTime,
@@ -8,11 +8,23 @@ import {
   filter,
   map,
 } from 'rxjs';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'customer-movies-autocomplete',
   templateUrl: './movies-autocomplete.component.html',
   styleUrls: ['./movies-autocomplete.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    NzFormModule,
+    NzInputModule,
+    NzAutocompleteModule,
+  ],
 })
 export class MoviesAutocompleteComponent implements OnInit, OnDestroy {
   @Input() parentForm: FormGroup | null = null;

@@ -5,8 +5,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgZorroModule } from '../../ng-zorro/ng-zorro.module';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, NgZorroModule],
-  declarations: [CountrySelectionComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    NgZorroModule,
+    CountrySelectionComponent,
+  ],
+  declarations: [],
   exports: [CountrySelectionComponent],
 })
 export class CountrySelectionModule {}

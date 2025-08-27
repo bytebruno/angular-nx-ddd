@@ -1,32 +1,42 @@
 <div class="content">
-  <nz-card
-    class="customer-data-card"
-    nzTitle="Thank you!"
-    *ngIf="customerData$ | async as customerData"
-    data-cy="customer-data-card"
-  >
-    <div class="customer-data-card-body">
-      <div class="customer-data-card-info" *ngIf="customerData.name">
-        <span nz-icon nzType="smile" nzTheme="outline"></span
-        ><strong>Name:</strong> {{ customerData.name }}
-      </div>
-
-      <div class="customer-data-card-info" *ngIf="customerData.userName">
-        <span nz-icon nzType="mail" nzTheme="outline"></span>
-        <strong>Username:</strong> {{ customerData.userName }}
-      </div>
-      <div class="customer-data-card-info" *ngIf="customerData.country">
-        <span nz-icon nzType="flag" nzTheme="outline"></span>
-        <strong>Country:</strong> {{ customerData.country }}
-      </div>
-      <div class="customer-data-card-info" *ngIf="customerData.postCode">
-        <span nz-icon nzType="home" nzTheme="outline"></span>
-        <strong>Post code:</strong> {{ customerData.postCode }}
-      </div>
-      <div class="customer-data-card-info" *ngIf="customerData.favoriteMovie">
-        <span nz-icon nzType="star" nzTheme="outline"></span>
-        <strong>Favorite movie:</strong> {{ customerData.favoriteMovie }}
-      </div>
-    </div>
-  </nz-card>
-</div>
+  @if (customerData$ | async; as customerData) {
+    <nz-card
+      class="customer-data-card"
+      nzTitle="Thank you!"
+      data-cy="customer-data-card"
+      >
+      <div class="customer-data-card-body">
+        @if (customerData.name) {
+          <div class="customer-data-card-info">
+            <span nz-icon nzType="smile" nzTheme="outline"></span
+              ><strong>Name:</strong> {{ customerData.name }}
+            </div>
+          }
+          @if (customerData.userName) {
+            <div class="customer-data-card-info">
+              <span nz-icon nzType="mail" nzTheme="outline"></span>
+              <strong>Username:</strong> {{ customerData.userName }}
+            </div>
+          }
+          @if (customerData.country) {
+            <div class="customer-data-card-info">
+              <span nz-icon nzType="flag" nzTheme="outline"></span>
+              <strong>Country:</strong> {{ customerData.country }}
+            </div>
+          }
+          @if (customerData.postCode) {
+            <div class="customer-data-card-info">
+              <span nz-icon nzType="home" nzTheme="outline"></span>
+              <strong>Post code:</strong> {{ customerData.postCode }}
+            </div>
+          }
+          @if (customerData.favoriteMovie) {
+            <div class="customer-data-card-info">
+              <span nz-icon nzType="star" nzTheme="outline"></span>
+              <strong>Favorite movie:</strong> {{ customerData.favoriteMovie }}
+            </div>
+          }
+        </div>
+      </nz-card>
+    }
+  </div>
