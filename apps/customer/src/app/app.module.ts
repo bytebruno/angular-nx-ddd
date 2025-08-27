@@ -25,7 +25,7 @@ registerLocaleData(en);
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: !isDevMode(),
-    }),
+    connectInZone: true}),
     EffectsModule.forRoot(),
     FormsModule,
     HttpClientModule,
